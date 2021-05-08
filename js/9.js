@@ -1,14 +1,20 @@
-const emailInputName = 'email';
-const passwordInputName = 'password';
-
-const credentials = {
-  // Пиши код ниже этой строки
-    [emailInputName]: 'henry.carter@aptmail.com',
-    [passwordInputName]: 'jqueryismyjam',
-  
-  
-  
-  // Пиши код выше этой строки
+const pizzaPalace = {
+  company: 'Pizza Palace',
 };
-console.log(credentials.email);
-console.log(credentials.password);
+
+const burgerShack = {
+  company: 'Burger Shack',
+};
+
+function composeMessage(customerName) {
+  return `${customerName}, всегда рады вас видеть в «${this.company}».`;
+}
+// Пиши код ниже этой строки
+
+const pizzaPalaceComposer = composeMessage.bind(pizzaPalace);
+const pizzaPalaceMessage = pizzaPalaceComposer('Манго');
+
+const burgerShackComposer = composeMessage.bind(burgerShack);
+const burgerShackMessage = burgerShackComposer('Поли');
+
+console.log(pizzaPalaceComposer('Манго'));

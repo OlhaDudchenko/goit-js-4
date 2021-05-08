@@ -1,18 +1,38 @@
-const apartment = {
-  imgUrl: 'https://via.placeholder.com/640x480',
-  descr: 'Просторная квартира в центре',
-  rating: 4.7,
-  price: 5000,
-  tags: ['premium', 'promoted', 'top', 'trusted'],
-  owner: {
-    name: 'Генри Сибола',
-    phone: '982-126-1588',
-    email: 'henry.carter@aptmail.com'
-  }
-};
+const orders = [
+  { email: 'solomon@topmail.ua', dish: 'Burger' },
+  { email: 'artemis@coldmail.net', dish: 'Pizza' },
+  { email: 'jacob@mail.com', dish: 'Taco' },
+];
 
-apartment.area = 60;
+function composeMessage(position) {
+  // console.log(position);
+    console.log(`Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`);
+  return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
+}
+const messages = [];
+for (let i = 0; i < orders.length; i += 1) {
+  // console.log(orders[i]);
+  messages.push(composeMessage.call(orders[i],i+1));
+  };
 
-apartment.rooms = 3;
-apartment.location = { country: 'Ямайка', city: 'Кингстон' };
-console.log(apartment);
+
+console.log(messages);
+
+// const orders = [
+//   { email: 'solomon@topmail.ua', dish: 'Burger' },
+//   { email: 'artemis@coldmail.net', dish: 'Pizza' },
+//   { email: 'jacob@mail.com', dish: 'Taco' },
+// ];
+// // Пиши код ниже этой строки
+// function composeMessage(position) {
+  
+// 	return `Готовим ${this.dish} для ${this.email}.Ваш заказ ${++position}-й в очереди.`;
+  
+// }
+// const messages = [];
+// for(let g = 0; g < Object.keys(orders).length; g++){
+  
+//   messages.push(composeMessage.call(orders[g], g));
+  
+//   }
+// console.log(messages);

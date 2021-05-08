@@ -1,27 +1,33 @@
-const apartment = {
-  imgUrl: 'https://via.placeholder.com/640x480',
-  descr: 'Просторная квартира в центре',
-  rating: 4,
-  price: 2153,
-  tags: ['premium', 'promoted', 'top'],
-  owner: {
-    name: 'Генри',
-    phone: '982-126-1588',
-    email: 'henry.carter@aptmail.com',
-  },
-};
+const pizzaPalace = {
+  pizzas: ['Ультрасыр', 'Аль Копчино', 'Четыре нарезона'],
+  order(pizzaName, onSuccess, onError) {
+    if (!this.pizzas.includes(pizzaName)) {
+      // console.log(this.pizzas);
+       return onError( `В ассортименте нет пиццы с названием ${pizzaName}.`);
+      // console.log((onError));
+       
+     
+    }
 
-// Пиши код ниже этой строки
-const ownerName = apartment.owner.name;
-console.log(ownerName);
-const ownerPhone = apartment.owner.phone;
-console.log(ownerPhone);
-const ownerEmail = apartment.owner.email;
-console.log(ownerEmail);
-const numberOfTags = apartment.tags.length;
-console.log(numberOfTags);
-const firstTag = apartment.tags[0];
-console.log(firstTag);
-const lastTag = apartment.tags[apartment.tags.length -1];
-console.log(lastTag);
+    return onSuccess(pizzaName);
+  },
+
+    
+};
 // Пиши код выше этой строки
+
+// Колбэк для onSuccess
+function makePizza(pizzaName) {
+  return `Ваш заказ принят. Готовим пиццу ${pizzaName}.`;
+}
+
+// Колбэк для onError
+function onOrderError(error) {
+  return `Ошибка! ${error}`;
+}
+
+// Вызовы метода с колбэками
+console.log(pizzaPalace.order('Аль Копчино', makePizza, onOrderError));
+console.log(pizzaPalace.order('Четыре нарезона', makePizza, onOrderError));
+console.log(pizzaPalace.order('Биг майк', makePizza, onOrderError));
+console.log(pizzaPalace.order('Венская', makePizza, onOrderError));

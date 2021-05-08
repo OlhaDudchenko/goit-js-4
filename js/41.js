@@ -16,35 +16,56 @@ const atTheOldToad = {
     this.potions.push(potionName);
   },
   removePotion(potionName) {
-   for (let i = 0; i < this.potions.length; i += 1){
-            // console.log(this.potions[i]);
-          if (potionName === this.potions[i].name ) {
-              // console.log(potionName);
-               this.potions.splice(i, 1);
-          }
-        }
-        return `Зелья ${potionName} нет в инвентаре!`;
+    for (let i = 0; i < this.potions.length; i += 1) {
+      // console.log(this.potions[i]);
+      if (potionName === this.potions[i].name) {
+        console.log(potionName)
+        // console.log(potionName);
+        this.potions.splice(i, 1);
+      }
+    }
+
+    //    for (const potion of this.potions) {
+    //   //  console.log(potion.name);
+    //    if (potion.name === potionName) {
+    //       // potion.name = newName;
+    //      this.potions.splice(potion, 1);
+    //      }
+     
+    // }
+    return `Зелья ${potionName} нет в инвентаре!`;
       
 
 
     
   },
   updatePotionName(oldName, newName) {
-   for (let i = 0; i < this.potions.length; i += 1){
-             console.log(this.potions[i].name);
-            if (oldName === this.potions[i].name) {
-               console.log(this.potions[i].name);
+    //  for (let i = 0; i < this.potions.length; i += 1){
+    //            console.log(this.potions[i].name);
+    //           if (oldName === this.potions[i].name) {
+    //              console.log(this.potions[i].name);
    
-              this.potions.splice(i, 1, {name: newName, price: this.potions[i].price});
+    //             this.potions.splice(i, 1, {name: newName, price: this.potions[i].price});
              
-   };
+    //  };
    
-     };
-return `Зелья ${oldName} нет в инвентаре!`;
+    //    };
+    //   return `Зелья ${oldName} нет в инвентаре!`;
+    
+    
+  //   for (const potion of this.potions) {
+  //     console.log(potion.name);
+  //     if (potion.name === oldName) {
+  //       potion.name = newName;
+  //      }
+     
+  //  }
+    
+  }
 
 
-  },
-  // Пиши код выше этой строки
+  
+    
 };
 // console.log(atTheOldToad);
 //  atTheOldToad.getPotions();

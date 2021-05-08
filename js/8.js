@@ -1,19 +1,18 @@
-const name = 'Ремонтный дроид';
-const price = 2500;
-const image = 'https://via.placeholder.com/640x480';
-const tags = ['on sale', 'trending', 'best buy'];
+const orders = [
+  { email: "solomon@topmail.ua", dish: "Burger" },
+  { email: "artemis@coldmail.net", dish: "Pizza" },
+  { email: "jacob@mail.com", dish: "Taco" },
+];
 
-const product = {
-  // Пиши код ниже этой строки
-    name,
-    price,
-    image,
-    tags,
+// Пиши код ниже этой строки
+function composeMessage(position) {
+  return `Готовим ${this.dish} для ${this.email}. Ваш заказ ${position}-й в очереди.`;
+}
 
+const messages = [];
+for (let i = 0; i < orders.length; i++) {
+  const msg = composeMessage.apply(orders[i],[i+1]);
+  messages.push(msg);
+}
 
-  // Пиши код выше этой строки
-};
-console.log(product.name);
-console.log(product.price);
-console.log(product.image);
-console.log(product.tags);
+console.log(messages);
